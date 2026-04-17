@@ -14,7 +14,10 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  overflow-y: scroll; /* Force la présence de la barre pour éviter le décalage */
+}
 
 body {
   background: var(--bg);
@@ -80,20 +83,12 @@ nav {
   transition: color 0.2s;
 }
 
-/*.nav-links a:hover, .nav-links a.active { color: var(--text); }*/
+/* Surbrillance du lien actif (sans le point) */
 .nav-links a:hover, 
 .nav-links a.active { 
   color: #ffffff !important; 
   font-weight: 700; 
 }
-
-/* Le petit point blanc sous le lien actif */
-.nav-links a:hover, 
-.nav-links a.active { 
-  color: #ffffff !important; 
-  font-weight: 700; 
-}
-
 
 /* ─── Boutons ─── */
 .btn-primary, .btn-outline {
@@ -230,6 +225,11 @@ h3 {
 /* ─── Footer ─── */
 footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.85rem; max-width: 1100px; margin: 0 auto; width: 100%; }
 
+/* ─── Menu Hamburger (Masqué sur PC) ─── */
+@media (min-width: 769px) {
+  .menu-toggle { display: none; }
+}
+
 /* ─── Responsive (Mobile) ─── */
 @media (max-width: 768px) {
   /* Navigation mobile */
@@ -243,12 +243,17 @@ footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex;
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .nav-links { 
+    display: flex; /* IMPORTANT : Le menu doit exister pour glisser */
     position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
     background: rgba(10,10,15,0.98); backdrop-filter: blur(16px);
     flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem;
-    transition: right 0.3s ease; z-index: 99;
+    transition: right 0.3s ease-in-out; z-index: 99;
   }
-  .nav-links.active-menu { right: 0; }
+  
+  .nav-links.active-menu { 
+    right: 0 !important; /* IMPORTANT : Fait glisser le menu sur l'écran */
+  }
+  
   .nav-links a { font-size: 1.2rem; }
 
   /* --- CENTRAGE FORCÉ DU CONTENU --- */
