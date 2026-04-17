@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Boukrani - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <span class="logo"><a href="index.html">Mohamed.</a></span>
+    <ul class="nav-links">
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="projects.html">Projets</a></li>
+      <li><a href="skills.html">Compétences</a></li>
+      <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+    <a href="contact.html" class="btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Me contacter</a>
+  </nav>
+
+  <main style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+
+    <div class="container">
+      <h1>
+        <span class="name-line">Bienvenue sur mon</span>
+        <span class="name-line gradient-text">Portfolio</span>
+      </h1>
+      
+      <p class="hero-desc" style="margin: 1.5rem auto;">
+        Data Scientist · ML Engineer · AI Engineer.<br>
+        Je construis des systèmes intelligents qui transforment la donnée en valeur réelle.
+      </p>
+      
+<!--       <div class="hero-cta" style="justify-content: center;">
+        <a href="projects.html" class="btn-primary">Découvrir mes projets →</a>
+        <a href="about.html" class="btn-outline">En savoir plus sur moi</a>
+      </div> -->
+      <div class="hero-cta" style="justify-content: center; gap: 1.5rem;">
+        <a href="Mohamed Boukrani - Data Scientist.pdf" target="_blank" class="btn-primary">
+          📄 Consulter mon CV
+        </a>
+        <a href="contact.html" class="btn-outline">
+          Discutons ensemble
+        </a>
+      </div>      
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Mohamed Boukrani</span>
+    <span>Data Scientist · ML Engineer · AI Engineer</span>
+  </footer>
+
+  <script>
+      // 1. Animation au défilement (Scroll reveal)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { 
+          if (e.isIntersecting) { 
+            e.target.classList.add('visible'); 
+            observer.unobserve(e.target); 
+          } 
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // 2. Surbrillance du lien actif (Version robuste pour GitHub Pages)
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll('.nav-links a');
+        const currentUrl = window.location.href; // Récupère l'URL complète
+        
+        links.forEach(link => {
+          link.classList.remove('active'); // Nettoyage de sécurité
+          
+          // Si l'URL correspond OU si on est à la racine de l'accueil
+          if (link.href === currentUrl || (currentUrl.endsWith('/') && link.getAttribute('href') === 'index.html')) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+
+</body>
+</html>

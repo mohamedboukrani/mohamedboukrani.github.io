@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Boukrani - À propos</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <span class="logo"><a href="index.html">Mohamed.</a></span>
+    <ul class="nav-links">
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="projects.html">Projets</a></li>
+      <li><a href="skills.html">Compétences</a></li>
+      <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+    <a href="contact.html" class="btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Me contacter</a>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag">01 · À propos</span>
+        <h2>Passionné par l'IA &<br>la science des données</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>Je suis <strong>Mohamed</strong>, Data Scientist et ML Engineer passionné par la construction de systèmes d'intelligence artificielle robustes et scalables.</p>
+          <p>Mon domaine couvre tout le cycle de vie de la donnée : de l'exploration et la modélisation jusqu'au déploiement en production. Je travaille sur des sujets comme le <strong>NLP</strong>, la <strong>vision par ordinateur</strong>, et les <strong>LLMs</strong>.</p>
+          <div style="margin-top: 1.5rem;">
+            <a href="contact.html" class="btn-outline">Discutons ensemble →</a>
+          </div>
+        </div>
+        <div class="about-visual" style="position: relative;">
+          <div class="avatar-box">
+            <img src="VOTRE_PHOTO_ICI.jpg" alt="Photo de Mohamed" onerror="this.src='https://via.placeholder.com/340x340/1a1a24/7c5cfc?text=Photo';">
+          </div>
+          <div class="avatar-badge">🇫🇷 Basé en France</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Mohamed Boukrani</span>
+    <span>Data Scientist · ML Engineer · AI Engineer</span>
+  </footer>
+
+  <script>
+      // 1. Animation au défilement (Scroll reveal)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { 
+          if (e.isIntersecting) { 
+            e.target.classList.add('visible'); 
+            observer.unobserve(e.target); 
+          } 
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // 2. Surbrillance du lien actif (Version robuste pour GitHub Pages)
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll('.nav-links a');
+        const currentUrl = window.location.href; // Récupère l'URL complète
+        
+        links.forEach(link => {
+          link.classList.remove('active'); // Nettoyage de sécurité
+          
+          // Si l'URL correspond OU si on est à la racine de l'accueil
+          if (link.href === currentUrl || (currentUrl.endsWith('/') && link.getAttribute('href') === 'index.html')) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Boukrani - Compétences</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <span class="logo"><a href="index.html">Mohamed.</a></span>
+    <ul class="nav-links">
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="projects.html">Projets</a></li>
+      <li><a href="skills.html">Compétences</a></li>
+      <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+    <a href="contact.html" class="btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Me contacter</a>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag">05 · Compétences</span>
+        <h2>Stack technique</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon" style="background: rgba(124,92,252,0.15);">🧠</div>
+          <h3>Machine Learning</h3>
+          <p>Modélisation prédictive, classification, régression, clustering et feature engineering.</p>
+          <div class="tags"><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon" style="background: rgba(0,212,170,0.12);">🔥</div>
+          <h3>Deep Learning</h3>
+          <p>Réseaux de neurones, architectures transformer, fine-tuning de modèles.</p>
+          <div class="tags"><span class="tag teal">PyTorch</span><span class="tag teal">TensorFlow</span><span class="tag teal">HuggingFace</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon" style="background: rgba(255,107,107,0.12);">💬</div>
+          <h3>NLP & LLMs</h3>
+          <p>Traitement du langage naturel, RAG, agents IA et prompting avancé.</p>
+          <div class="tags"><span class="tag red">LangChain</span><span class="tag red">OpenAI API</span><span class="tag red">BERT</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon" style="background: rgba(255,209,102,0.12);">☁️</div>
+          <h3>MLOps & Cloud</h3>
+          <p>Déploiement, monitoring, pipelines CI/CD et infrastructure cloud pour le ML.</p>
+          <div class="tags"><span class="tag yellow">MLflow</span><span class="tag yellow">Docker</span><span class="tag yellow">AWS / GCP</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Mohamed Boukrani</span>
+    <span>Data Scientist · ML Engineer · AI Engineer</span>
+  </footer>
+
+  <script>
+      // 1. Animation au défilement (Scroll reveal)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { 
+          if (e.isIntersecting) { 
+            e.target.classList.add('visible'); 
+            observer.unobserve(e.target); 
+          } 
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // 2. Surbrillance du lien actif (Version robuste pour GitHub Pages)
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll('.nav-links a');
+        const currentUrl = window.location.href; // Récupère l'URL complète
+        
+        links.forEach(link => {
+          link.classList.remove('active'); // Nettoyage de sécurité
+          
+          // Si l'URL correspond OU si on est à la racine de l'accueil
+          if (link.href === currentUrl || (currentUrl.endsWith('/') && link.getAttribute('href') === 'index.html')) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+
+</body>
+</html>
