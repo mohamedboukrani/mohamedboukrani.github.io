@@ -236,10 +236,32 @@ footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex;
 /* ─── Responsive (Mobile) ─── */
 @media (max-width: 768px) {
   /* Navigation mobile */
-  nav { padding: 1rem 1.5rem; justify-content: space-between; }
+  /* nav { padding: 1rem 1.5rem; justify-content: space-between; } */
+  nav { 
+      padding: 1rem 1.5rem; 
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Pousse le logo à gauche et le hamburger à droite */
+      flex-direction: row !important; /* Force l'alignement horizontal */
+    }  
+
+  
   nav > .btn-primary { display: none; }
   
-  .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 100; padding: 5px; }
+  /* .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 100; padding: 5px; } */
+  .menu-toggle { 
+      order: 2; /* Force le bouton à se placer après le logo */
+      display: flex; 
+      flex-direction: column; 
+      gap: 5px; 
+      cursor: pointer; 
+      z-index: 101; 
+      padding: 5px; 
+    }
+  
+    .logo { 
+      order: 1; /* Le logo reste à gauche */
+    }  
   .menu-toggle span { display: block; width: 26px; height: 2px; background: var(--text); transition: 0.3s ease-in-out; }
   .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
