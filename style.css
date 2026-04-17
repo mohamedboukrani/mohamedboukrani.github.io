@@ -242,11 +242,11 @@ footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex;
       display: flex;
       align-items: center;
       justify-content: flex-start; /* <-- C'est ceci qui regroupe tout à gauche */
-      gap: 1.5rem; /* <-- L'espace entre le logo et le hamburger */
+      gap: 1.2rem; /* <-- L'espace entre le logo et le hamburger */
     }  
   
   .logo {
-    order: 1; /* Place le logo en premier */
+    order: 2; /* Place le logo en premier */
   }
   
   nav > .btn-primary { display: none; }
@@ -254,15 +254,14 @@ footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex;
   /* .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 100; padding: 5px; } */
   /* Le bouton hamburger vient se placer juste après le logo */
   .menu-toggle { 
-    order: 2;
+    order: 1; /* <-- Position 1 */
     display: flex; 
     flex-direction: column; 
     gap: 5px; 
     cursor: pointer; 
     z-index: 101; 
-    padding: 5px; 
-    margin-top: 2px; /* Petit ajustement pour l'aligner parfaitement avec le texte du logo */
-  }  
+    padding: 5px 5px 5px 0; /* Enlève le padding gauche pour être bien collé au bord */
+  }
   .menu-toggle span { display: block; width: 26px; height: 2px; background: var(--text); transition: 0.3s ease-in-out; }
   .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
@@ -270,14 +269,14 @@ footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex;
 
   .nav-links { 
     display: flex; /* IMPORTANT : Le menu doit exister pour glisser */
-    position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+    position: fixed; top: 0; left: -100%; width: 100%; height: 100vh;
     background: rgba(10,10,15,0.98); backdrop-filter: blur(16px);
     flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem;
-    transition: right 0.3s ease-in-out; z-index: 99;
+    transition: left 0.2s ease-in-out; z-index: 99;
   }
   
   .nav-links.active-menu { 
-    right: 0 !important; /* IMPORTANT : Fait glisser le menu sur l'écran */
+    left: 0 !important; /* IMPORTANT : Fait glisser le menu sur l'écran */
   }
   
   .nav-links a { font-size: 1.2rem; }
