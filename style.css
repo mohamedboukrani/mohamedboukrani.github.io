@@ -14,11 +14,18 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
 html { 
   scroll-behavior: smooth; 
-  overflow-y: scroll; /* Empêche le saut de page sur PC */
-  overflow-x: hidden; /* LA CLÉ EST ICI : Coupe le débordement sur mobile */
-  width: 100%;
+  overflow-y: scroll; 
 }
 
 body {
@@ -27,9 +34,6 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.7;
-  overflow-x: hidden;
-  max-width: 100%;    /* Empêche la page de s'étirer */
-  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
