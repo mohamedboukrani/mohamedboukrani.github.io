@@ -19,6 +19,7 @@ html {
   overflow-y: scroll; /* Empêche le saut de page sur PC */
   overflow-x: hidden; /* LA CLÉ EST ICI : Coupe le débordement sur mobile */
   width: 100%;
+}
 
 body {
   background: var(--bg);
